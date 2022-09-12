@@ -1,0 +1,8 @@
+name: SuperVanishBridge
+version: @project.version@
+main: uk.co.notnull.supervanishbridge.SuperVanishBridge
+author: Jim (NotKatuen)
+api-version: 1.19
+load: STARTUP
+description: Bridge plugin to notify Velocity of a player's SuperVanish state on a backend server
+depend: [SuperVanish]
