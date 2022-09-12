@@ -30,7 +30,7 @@ public class SuperVanishBridge extends JavaPlugin implements Listener {
 			return;
 		}
 
-		sendPluginMessage(superVanish.getVanishPlayer(getServer().getPlayer(event.getUUID())));
+		sendPluginMessage(superVanish.getVanishPlayer(getServer().getPlayer(event.getUUID())), event.isVanishing());
 	}
 
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
@@ -43,13 +43,15 @@ public class SuperVanishBridge extends JavaPlugin implements Listener {
 				return;
 			}
 
-			sendPluginMessage(superVanish.getVanishPlayer(player));
+			VanishPlayer vanishPlayer = superVanish.getVanishPlayer(player);
+
+			sendPluginMessage(vanishPlayer, vanishPlayer.isOnlineVanished());
 		}, 1L);
 	}
 
-	private void sendPluginMessage(VanishPlayer vanishPlayer) {
+	private void sendPluginMessage(VanishPlayer vanishPlayer, boolean state) {
 		byte[] data = ByteBuffer.allocate(9)
-				.put((byte) (vanishPlayer.isOnlineVanished() ? 1 : 0))
+				.put((byte) (state ? 1 : 0))
 				.putInt(vanishPlayer.getUsePermissionLevel())
 				.putInt(vanishPlayer.getSeePermissionLevel())
 				.array();
