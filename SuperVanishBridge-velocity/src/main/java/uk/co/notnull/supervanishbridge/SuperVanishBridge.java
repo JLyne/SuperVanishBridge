@@ -16,6 +16,7 @@ import com.velocitypowered.api.proxy.messages.ChannelIdentifier;
 import com.velocitypowered.api.proxy.messages.MinecraftChannelIdentifier;
 import org.slf4j.Logger;
 import uk.co.notnull.supervanishbridge.api.SuperVanishBridgeAPI;
+import uk.co.notnull.supervanishbridge.api.VanishStateChangeEvent;
 
 import java.util.Set;
 import java.util.UUID;
@@ -46,6 +47,9 @@ public class SuperVanishBridge implements SuperVanishBridgeAPI {
 		Player player = event.getPlayer();
 
 		if(player.hasPermission("sv.joinvanished")) {
+			logger.info("Setting vanish on join for " + player.getUsername() + " to "
+								+ getLayeredPermissionLevel(player, "use") + ":"
+								+ getLayeredPermissionLevel(player, "see"));
 			handleStateChange(player, true,
 							  getLayeredPermissionLevel(player, "use"),
 							  getLayeredPermissionLevel(player, "see"));
@@ -64,20 +68,31 @@ public class SuperVanishBridge implements SuperVanishBridgeAPI {
 				int useLevel = in.readInt();
 				int seeLevel = in.readInt();
 
+				logger.info("Settting vanish via plugin message for " + player.getUsername() + " to state: "
+						        + vanished + ", levels: "
+								+ useLevel + ":"
+								+ seeLevel);
+
 				handleStateChange(player, vanished, useLevel, seeLevel);
 			}
 		}
 	}
 
 	private void handleStateChange(Player player, boolean state, int useLevel, int seeLevel) {
+		boolean changed;
+
 		if(state) {
-			vanished.add(player.getUniqueId());
+			changed = vanished.add(player.getUniqueId());
 		} else {
-			vanished.remove(player.getUniqueId());
+			changed = vanished.remove(player.getUniqueId());
 		}
 
 		vanishLevels.compute(player.getUniqueId(), (key, value) -> useLevel > 0 ? useLevel : null);
 		seeLevels.compute(player.getUniqueId(), (key, value) -> seeLevel > 0 ? seeLevel : null);
+
+		if(changed) {
+			proxy.getEventManager().fireAndForget(new VanishStateChangeEvent(player, state));
+		}
 	}
 
 	public boolean isVanished(Player player) {
