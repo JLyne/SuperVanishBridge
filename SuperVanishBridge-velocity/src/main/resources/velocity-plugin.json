@@ -1,0 +1,17 @@
+{
+  "id": "supervanishbridge",
+  "name": "SuperVanishBridge",
+  "version": "@project.version@",
+  "authors": ["Jim (NotKatuen)"],
+  "dependencies": [
+    {
+      "id": "proxychat",
+      "optional": true
+    },
+    {
+      "id": "proxydiscord",
+      "optional": true
+    }
+  ],
+  "main": "uk.co.notnull.supervanishbridge.SuperVanishBridge"
+}
