@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/SuperVanishBridge-api" />
+            <option value="$PROJECT_DIR$/SuperVanishBridge-helper" />
             <option value="$PROJECT_DIR$/SuperVanishBridge-paper" />
             <option value="$PROJECT_DIR$/SuperVanishBridge-velocity" />
           </set>
