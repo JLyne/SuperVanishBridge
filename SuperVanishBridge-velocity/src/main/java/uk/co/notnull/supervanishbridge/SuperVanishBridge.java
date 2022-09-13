@@ -53,9 +53,6 @@ public class SuperVanishBridge implements SuperVanishBridgeAPI {
 		Player player = event.getPlayer();
 
 		if(player.hasPermission("sv.joinvanished")) {
-			logger.info("Setting vanish on join for " + player.getUsername() + " to "
-								+ getLayeredPermissionLevel(player, "use") + ":"
-								+ getLayeredPermissionLevel(player, "see"));
 			handleStateChange(player, true,
 							  getLayeredPermissionLevel(player, "use"),
 							  getLayeredPermissionLevel(player, "see"));
@@ -82,11 +79,6 @@ public class SuperVanishBridge implements SuperVanishBridgeAPI {
 				boolean vanished = in.readBoolean();
 				int useLevel = in.readInt();
 				int seeLevel = in.readInt();
-
-				logger.info("Settting vanish via plugin message for " + player.getUsername() + " to state: "
-						        + vanished + ", levels: "
-								+ useLevel + ":"
-								+ seeLevel);
 
 				handleStateChange(player, vanished, useLevel, seeLevel);
 			}
