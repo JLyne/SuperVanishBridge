@@ -5,6 +5,7 @@ import com.google.common.io.ByteStreams;
 import com.google.inject.Inject;
 import com.velocitypowered.api.command.CommandSource;
 import com.velocitypowered.api.event.PostOrder;
+import com.velocitypowered.api.event.connection.DisconnectEvent;
 import com.velocitypowered.api.event.connection.PluginMessageEvent;
 import com.velocitypowered.api.event.player.PlayerChooseInitialServerEvent;
 import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
@@ -61,6 +62,15 @@ public class SuperVanishBridge implements SuperVanishBridgeAPI {
 		}
 	}
 
+	@Subscribe(order = PostOrder.LAST)
+	public void onLeave(DisconnectEvent event) {
+		UUID uuid = event.getPlayer().getUniqueId();
+
+		vanished.remove(uuid);
+		seeLevels.remove(uuid);
+		vanishLevels.remove(uuid);
+	}
+
 	@Subscribe
 	public void onPluginMessageEvent(PluginMessageEvent event) {
 		if (event.getIdentifier().equals(stateChangeChannel)) {
@@ -113,10 +123,10 @@ public class SuperVanishBridge implements SuperVanishBridgeAPI {
 	}
 
 	public boolean canSee(UUID uuid1, UUID uuid2) {
-		Integer player1Vanish = vanishLevels.computeIfAbsent(uuid1, key -> null);
-		Integer player2See = seeLevels.computeIfAbsent(uuid1, key -> null);
+		Integer player1See = seeLevels.computeIfAbsent(uuid1, key -> null);
+		Integer player2Vanish = vanishLevels.computeIfAbsent(uuid2, key -> null);
 
-		return player1Vanish == null || (player2See != null && player2See >= player1Vanish);
+		return player2Vanish == null || (player1See != null && player1See >= player2Vanish);
 	}
 
 	@Override
