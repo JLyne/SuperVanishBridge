@@ -14,13 +14,18 @@ import com.velocitypowered.api.proxy.ProxyServer;
 import com.velocitypowered.api.proxy.ServerConnection;
 import com.velocitypowered.api.proxy.messages.ChannelIdentifier;
 import com.velocitypowered.api.proxy.messages.MinecraftChannelIdentifier;
+import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import uk.co.notnull.supervanishbridge.api.SuperVanishBridgeAPI;
 import uk.co.notnull.supervanishbridge.api.VanishStateChangeEvent;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @SuppressWarnings("unused")
 public class SuperVanishBridge implements SuperVanishBridgeAPI {
@@ -113,6 +118,37 @@ public class SuperVanishBridge implements SuperVanishBridgeAPI {
 
 		return player1Vanish == null || (player2See != null && player2See >= player1Vanish);
 	}
+
+	@Override
+	public List<Player> getPlayerSuggestions(String query, @Nullable CommandSource source) {
+		Stream<Player> stream;
+
+		if(source == null) {
+			stream = proxy.getAllPlayers().stream().filter(p -> !isVanished(p));
+		} else if(source instanceof Player) {
+			stream = proxy.getAllPlayers().stream().filter(p -> canSee((Player) source, p));
+		} else {
+			return new ArrayList<>(proxy.getAllPlayers());
+		}
+
+		return stream.collect(Collectors.toList());
+	}
+
+	@Override
+	public List<String> getUsernameSuggestions(String query, @Nullable CommandSource source) {
+		Stream<Player> stream;
+
+		if(source == null) {
+			stream = proxy.getAllPlayers().stream().filter(p -> !isVanished(p));
+		} else if(source instanceof Player) {
+			stream = proxy.getAllPlayers().stream().filter(p -> canSee((Player) source, p));
+		} else {
+			stream = proxy.getAllPlayers().stream();
+		}
+
+		return stream.map(Player::getUsername).collect(Collectors.toList());
+	}
+
 
 	private int getLayeredPermissionLevel(CommandSource source, String permission) {
         int level = source.hasPermission("sv." + permission) ? 1 : 0;
