@@ -102,8 +102,8 @@ public class SuperVanishBridge implements SuperVanishBridgeAPI {
 			changed = vanished.remove(player.getUniqueId());
 		}
 
-		vanishLevels.compute(player.getUniqueId(), (key, value) -> useLevel > 0 ? useLevel : null);
-		seeLevels.compute(player.getUniqueId(), (key, value) -> seeLevel > 0 ? seeLevel : null);
+		vanishLevels.compute(player.getUniqueId(), (key, value) -> useLevel);
+		seeLevels.compute(player.getUniqueId(), (key, value) -> seeLevel);
 
 		if(changed) {
 			proxy.getEventManager().fireAndForget(new VanishStateChangeEvent(player, state));
@@ -123,10 +123,10 @@ public class SuperVanishBridge implements SuperVanishBridgeAPI {
 	}
 
 	public boolean canSee(UUID uuid1, UUID uuid2) {
-		Integer player1See = seeLevels.computeIfAbsent(uuid1, key -> null);
-		Integer player2Vanish = vanishLevels.computeIfAbsent(uuid2, key -> null);
+		Integer player1See = seeLevels.computeIfAbsent(uuid1, key -> 0);
+		Integer player2Vanish = vanishLevels.computeIfAbsent(uuid2, key -> 0);
 
-		return player2Vanish == null || (player1See != null && player1See >= player2Vanish);
+		return !vanished.contains(uuid2) || (player1See >= player2Vanish);
 	}
 
 	@Override
