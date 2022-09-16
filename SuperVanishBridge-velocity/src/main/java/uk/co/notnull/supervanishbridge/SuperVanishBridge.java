@@ -7,7 +7,7 @@ import com.velocitypowered.api.command.CommandSource;
 import com.velocitypowered.api.event.PostOrder;
 import com.velocitypowered.api.event.connection.DisconnectEvent;
 import com.velocitypowered.api.event.connection.PluginMessageEvent;
-import com.velocitypowered.api.event.player.PlayerChooseInitialServerEvent;
+import com.velocitypowered.api.event.connection.PostLoginEvent;
 import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.proxy.Player;
@@ -49,7 +49,7 @@ public class SuperVanishBridge implements SuperVanishBridgeAPI {
 	}
 
 	@Subscribe(order = PostOrder.FIRST)
-	public void onJoin(PlayerChooseInitialServerEvent event) {
+	public void onJoin(PostLoginEvent event) {
 		Player player = event.getPlayer();
 
 		if(player.hasPermission("sv.joinvanished")) {
