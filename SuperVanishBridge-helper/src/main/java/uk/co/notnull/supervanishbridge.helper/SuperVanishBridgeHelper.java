@@ -9,6 +9,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @SuppressWarnings("unused")
@@ -58,6 +59,12 @@ public class SuperVanishBridgeHelper {
 			return handler.getApi().getUsernameSuggestions(query, source);
 		} else {
 			return proxyServer.matchPlayer(query).stream().map(Player::getUsername).collect(Collectors.toList());
+		}
+	}
+
+	public void ifLoaded(Function<SuperVanishBridgeHandler, Void> callback) {
+		if(handler != null) {
+			callback.apply(handler);
 		}
 	}
 
