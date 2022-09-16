@@ -5,7 +5,7 @@
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.velocitypowered/velocity-api/3.1.2-SNAPSHOT/35c3aaa596fcefc1e827b6ef7bf85d5da777a124/velocity-api-3.1.2-SNAPSHOT.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.velocitypowered/velocity-api/3.1.2-SNAPSHOT/c5a38995c4dea2d8da8d379ee2f9aa811e4567db/velocity-api-3.1.2-SNAPSHOT.jar" />
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.moandjiezana.toml/toml4j/0.7.2/a03337911d0bd2c40932aca3946edb30d0e7d0c/toml4j-0.7.2.jar" />
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.spongepowered/configurate-gson/3.7.3/4facb1a9abd996fa3cce45dd128997765f50f75b/configurate-gson-3.7.3.jar" />
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.kyori/adventure-text-minimessage/4.10.1/c433cd701761c75ca06b7f36eb2623068203dd61/adventure-text-minimessage-4.10.1.jar" />
@@ -40,6 +40,6 @@
         <module name="SuperVanishBridge.SuperVanishBridge-velocity.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="17" />
+    <bytecodeTargetLevel target="11" />
   </component>
 </project>
