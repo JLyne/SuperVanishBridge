@@ -3,6 +3,7 @@ package uk.co.notnull.supervanishbridge;
 import de.myzelyam.api.vanish.PlayerVanishStateChangeEvent;
 import de.myzelyam.supervanish.SuperVanish;
 import de.myzelyam.supervanish.VanishPlayer;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -55,6 +56,11 @@ public class SuperVanishBridge extends JavaPlugin implements Listener {
 				.putInt(vanishPlayer.getUsePermissionLevel())
 				.putInt(vanishPlayer.getSeePermissionLevel())
 				.array();
-		vanishPlayer.getPlayer().sendPluginMessage(this, "supervanish:statechange", data);
+
+		Player player = Bukkit.getPlayer(vanishPlayer.getPlayerUUID());
+
+		if(player != null) {
+			player.sendPluginMessage(this, "supervanish:statechange", data);
+		}
 	}
 }
