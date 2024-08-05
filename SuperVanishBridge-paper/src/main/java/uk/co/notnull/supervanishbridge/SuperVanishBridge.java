@@ -36,7 +36,6 @@ public class SuperVanishBridge extends JavaPlugin implements Listener {
 
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onPlayerJoin(PlayerJoinEvent event) {
-
 		getServer().getScheduler().scheduleSyncDelayedTask(this, () -> {
 			Player player = event.getPlayer();
 
@@ -60,6 +59,7 @@ public class SuperVanishBridge extends JavaPlugin implements Listener {
 		Player player = Bukkit.getPlayer(vanishPlayer.getPlayerUUID());
 
 		if(player != null) {
+			getLogger().info("Propagating vanish state of " + player.getName() + ": " + state);
 			player.sendPluginMessage(this, "supervanish:statechange", data);
 		}
 	}
