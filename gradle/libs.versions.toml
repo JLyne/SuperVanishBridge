@@ -1,5 +1,5 @@
 [versions]
-pluginYmlPaper = "0.6.0"
+pluginYmlPaper = "0.7.1"
 paperApi = "1.21.4-R0.1-SNAPSHOT"
 velocityApi = "3.4.0-SNAPSHOT"
 cloud = "1.8.4"
@@ -14,4 +14,4 @@ cloudAnnotations = { group = "cloud.commandframework", name = "cloud-annotations
 superVanish = { group = "com.github.LeonMangler", name = "SuperVanish", version.ref="superVanish" }
 
 [plugins]
-pluginYmlPaper = { id = "net.minecrell.plugin-yml.paper", version.ref = "pluginYmlPaper" }
+pluginYmlPaper = { id = "de.eldoria.plugin-yml.paper", version.ref = "pluginYmlPaper" }
