@@ -4,7 +4,6 @@ import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteStreams;
 import com.google.inject.Inject;
 import com.velocitypowered.api.command.CommandSource;
-import com.velocitypowered.api.event.PostOrder;
 import com.velocitypowered.api.event.connection.DisconnectEvent;
 import com.velocitypowered.api.event.connection.PluginMessageEvent;
 import com.velocitypowered.api.event.connection.PostLoginEvent;
@@ -48,7 +47,7 @@ public class SuperVanishBridge implements SuperVanishBridgeAPI {
 		proxy.getChannelRegistrar().register(stateChangeChannel);
 	}
 
-	@Subscribe(order = PostOrder.FIRST)
+	@Subscribe(priority = Short.MAX_VALUE - 1)
 	public void onJoin(PostLoginEvent event) {
 		Player player = event.getPlayer();
 
@@ -59,7 +58,7 @@ public class SuperVanishBridge implements SuperVanishBridgeAPI {
 		}
 	}
 
-	@Subscribe(order = PostOrder.LAST)
+	@Subscribe(priority = Short.MIN_VALUE + 1)
 	public void onLeave(DisconnectEvent event) {
 		UUID uuid = event.getPlayer().getUniqueId();
 
