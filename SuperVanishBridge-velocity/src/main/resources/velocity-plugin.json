@@ -1,7 +1,0 @@
-{
-  "id": "supervanishbridge",
-  "name": "SuperVanishBridge",
-  "version": "@project.version@",
-  "authors": ["Jim (NotKatuen)"],
-  "main": "uk.co.notnull.supervanishbridge.SuperVanishBridge"
-}

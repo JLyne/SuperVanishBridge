@@ -5,9 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SuperVanishBridge-api/SuperVanishBridge.SuperVanishBridge-api.main.iml" filepath="$PROJECT_DIR$/.idea/modules/SuperVanishBridge-api/SuperVanishBridge.SuperVanishBridge-api.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SuperVanishBridge-helper/SuperVanishBridge.SuperVanishBridge-helper.main.iml" filepath="$PROJECT_DIR$/.idea/modules/SuperVanishBridge-helper/SuperVanishBridge.SuperVanishBridge-helper.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SuperVanishBridge-velocity/SuperVanishBridge.SuperVanishBridge-velocity.main.iml" filepath="$PROJECT_DIR$/.idea/modules/SuperVanishBridge-velocity/SuperVanishBridge.SuperVanishBridge-velocity.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SuperVanishBridge-api/uk.co.notnull.SuperVanishBridge.SuperVanishBridge-api.main.iml" filepath="$PROJECT_DIR$/.idea/modules/SuperVanishBridge-api/uk.co.notnull.SuperVanishBridge.SuperVanishBridge-api.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SuperVanishBridge-helper/uk.co.notnull.SuperVanishBridge.SuperVanishBridge-helper.main.iml" filepath="$PROJECT_DIR$/.idea/modules/SuperVanishBridge-helper/uk.co.notnull.SuperVanishBridge.SuperVanishBridge-helper.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SuperVanishBridge-velocity/uk.co.notnull.SuperVanishBridge.SuperVanishBridge-velocity.main.iml" filepath="$PROJECT_DIR$/.idea/modules/SuperVanishBridge-velocity/uk.co.notnull.SuperVanishBridge.SuperVanishBridge-velocity.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/VanishBridge-api/VanishBridge.VanishBridge-api.main.iml" filepath="$PROJECT_DIR$/.idea/modules/VanishBridge-api/VanishBridge.VanishBridge-api.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/VanishBridge-helper/VanishBridge.VanishBridge-helper.main.iml" filepath="$PROJECT_DIR$/.idea/modules/VanishBridge-helper/VanishBridge.VanishBridge-helper.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/VanishBridge-velocity/VanishBridge.VanishBridge-velocity.main.iml" filepath="$PROJECT_DIR$/.idea/modules/VanishBridge-velocity/VanishBridge.VanishBridge-velocity.main.iml" />
     </modules>
   </component>
 </project>

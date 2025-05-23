@@ -19,10 +19,10 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/SuperVanishBridge-api" />
-            <option value="$PROJECT_DIR$/SuperVanishBridge-helper" />
-            <option value="$PROJECT_DIR$/SuperVanishBridge-paper" />
-            <option value="$PROJECT_DIR$/SuperVanishBridge-velocity" />
+            <option value="$PROJECT_DIR$/VanishBridge-api" />
+            <option value="$PROJECT_DIR$/VanishBridge-helper" />
+            <option value="$PROJECT_DIR$/VanishBridge-paper" />
+            <option value="$PROJECT_DIR$/VanishBridge-velocity" />
             <option value="$PROJECT_DIR$/buildSrc" />
           </set>
         </option>

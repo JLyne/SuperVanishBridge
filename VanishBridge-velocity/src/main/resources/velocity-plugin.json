@@ -1,0 +1,7 @@
+{
+  "id": "vanishbridge",
+  "name": "VanishBridge",
+  "version": "@project.version@",
+  "authors": ["Jim (NotKatuen)"],
+  "main": "uk.co.notnull.vanishbridge.VanishBridge"
+}

@@ -1,10 +1,10 @@
-rootProject.name = "SuperVanishBridge"
+rootProject.name = "VanishBridge"
 
-include(":SuperVanishBridge-api")
-include(":SuperVanishBridge-helper")
-include(":SuperVanishBridge-paper")
-include(":SuperVanishBridge-velocity")
-project(":SuperVanishBridge-api").projectDir = file("SuperVanishBridge-api")
-project(":SuperVanishBridge-helper").projectDir = file("SuperVanishBridge-helper")
-project(":SuperVanishBridge-paper").projectDir = file("SuperVanishBridge-paper")
-project(":SuperVanishBridge-velocity").projectDir = file("SuperVanishBridge-velocity")
+include(":VanishBridge-api")
+include(":VanishBridge-helper")
+include(":VanishBridge-paper")
+include(":VanishBridge-velocity")
+project(":VanishBridge-api").projectDir = file("VanishBridge-api")
+project(":VanishBridge-helper").projectDir = file("VanishBridge-helper")
+project(":VanishBridge-paper").projectDir = file("VanishBridge-paper")
+project(":VanishBridge-velocity").projectDir = file("VanishBridge-velocity")
