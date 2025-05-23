@@ -9,6 +9,7 @@ plugins {
 dependencies {
     compileOnly(libs.paperApi)
     compileOnly(libs.superVanish)
+    compileOnly(libs.simpleVanish)
 }
 
 paper {
@@ -21,6 +22,10 @@ paper {
 
     serverDependencies {
         register("SuperVanish") {
+            required = false
+            load = PaperPluginDescription.RelativeLoadOrder.AFTER
+        }
+        register("SimpleVanish") {
             required = false
             load = PaperPluginDescription.RelativeLoadOrder.AFTER
         }

@@ -4,6 +4,7 @@ paperApi = "1.21.5-R0.1-SNAPSHOT"
 velocityApi = "3.4.0-SNAPSHOT"
 cloud = "1.8.4"
 superVanish = "6.2.19"
+simpleVanish = "1.0-SNAPSHOT"
 
 [libraries]
 paperApi = { group = "io.papermc.paper", name = "paper-api", version.ref = "paperApi" }
@@ -12,6 +13,7 @@ cloudVelocity = { group = "cloud.commandframework", name = "cloud-velocity", ver
 cloudMinecraftExtras = { group = "cloud.commandframework", name = "cloud-minecraft-extras", version.ref="cloud" }
 cloudAnnotations = { group = "cloud.commandframework", name = "cloud-annotations", version.ref="cloud" }
 superVanish = { group = "com.github.LeonMangler", name = "SuperVanish", version.ref="superVanish" }
+simpleVanish = { group = "uk.co.notnull", name = "SimpleVanish", version.ref="simpleVanish" }
 
 [plugins]
 pluginYmlPaper = { id = "de.eldoria.plugin-yml.paper", version.ref = "pluginYmlPaper" }
