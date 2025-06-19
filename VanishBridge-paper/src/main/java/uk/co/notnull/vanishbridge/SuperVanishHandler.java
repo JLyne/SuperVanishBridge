@@ -10,7 +10,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-public class SuperVanishHandler implements Listener {
+public final class SuperVanishHandler implements Listener {
 	private final VanishBridge plugin;
 	private final SuperVanish superVanish = (SuperVanish) Bukkit.getServer().getPluginManager().getPlugin("SuperVanish");
 
