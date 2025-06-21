@@ -20,10 +20,13 @@ repositories {
     }
 
     maven {
+        url = uri("https://repo.not-null.co.uk/snapshots/")
+    }
+
+    maven {
         url = uri("https://jitpack.io/")
     }
 
-    mavenCentral()
     mavenLocal()
 }
 
