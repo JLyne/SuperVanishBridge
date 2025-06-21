@@ -11,9 +11,6 @@ version = "2.0-SNAPSHOT"
 val libs = the<LibrariesForLibs>()
 
 repositories {
-    mavenLocal()
-    mavenCentral()
-
     maven {
         url = uri("https://repo.papermc.io/repository/maven-public/")
     }
@@ -25,6 +22,9 @@ repositories {
     maven {
         url = uri("https://jitpack.io/")
     }
+
+    mavenCentral()
+    mavenLocal()
 }
 
 java {
