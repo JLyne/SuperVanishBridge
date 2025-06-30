@@ -1,5 +1,6 @@
 plugins {
     id("vanish-bridge.java-conventions")
+    alias(libs.plugins.shadow)
 }
 
 dependencies {
@@ -7,4 +8,18 @@ dependencies {
 
     compileOnly(libs.velocityApi)
     annotationProcessor(libs.velocityApi)
+}
+
+tasks {
+    shadowJar {
+        archiveClassifier = ""
+    }
+
+    build {
+        dependsOn(shadowJar)
+    }
+
+    processResources {
+        expand("version" to project.version)
+    }
 }

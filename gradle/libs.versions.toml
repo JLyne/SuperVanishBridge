@@ -5,7 +5,7 @@ velocityApi = "3.4.0-SNAPSHOT"
 cloud = "1.8.4"
 superVanish = "6.2.19"
 simpleVanish = "1.0-SNAPSHOT"
-
+shadow = "8.3.7"
 [libraries]
 paperApi = { group = "io.papermc.paper", name = "paper-api", version.ref = "paperApi" }
 velocityApi = { group = "com.velocitypowered", name = "velocity-api", version.ref="velocityApi" }
@@ -17,3 +17,4 @@ simpleVanish = { group = "uk.co.notnull", name = "SimpleVanish", version.ref="si
 
 [plugins]
 pluginYmlPaper = { id = "de.eldoria.plugin-yml.paper", version.ref = "pluginYmlPaper" }
+shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }
