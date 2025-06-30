@@ -2,6 +2,6 @@
   "id": "vanishbridge",
   "name": "VanishBridge",
   "version": "${version}",
-  "authors": ["Jim (NotKatuen)"],
+  "authors": ["Jim (AnEnragedPigeon)"],
   "main": "uk.co.notnull.vanishbridge.VanishBridge"
 }
