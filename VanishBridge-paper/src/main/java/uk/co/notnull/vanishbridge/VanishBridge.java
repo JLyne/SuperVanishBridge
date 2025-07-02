@@ -21,6 +21,10 @@ public class VanishBridge extends JavaPlugin implements Listener {
 			getLogger().info("Enabling SuperVanish integration");
 			new SuperVanishHandler(this);
 		}
+		if(event.getPlugin().getName().equals("SimpleVanish")) {
+			getLogger().info("Enabling SimpleVanish integration");
+			new SimpleVanishHandler(this);
+		}
 	}
 
 	void sendPluginMessage(Player player, boolean state) {
