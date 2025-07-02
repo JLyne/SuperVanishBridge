@@ -42,9 +42,6 @@ public class VanishBridge implements VanishBridgeAPI {
 
 	@Subscribe
 	public void onProxyInitialization(ProxyInitializeEvent event) {
-		boolean proxyChatEnabled = proxy.getPluginManager().isLoaded("proxychat");
-		boolean proxyDiscordEnabled = proxy.getPluginManager().isLoaded("proxydiscord");
-
 		proxy.getChannelRegistrar().register(stateChangeChannel);
 		proxy.getChannelRegistrar().register(oldStateChangeChannel);
 	}
@@ -54,7 +51,6 @@ public class VanishBridge implements VanishBridgeAPI {
 		Player player = event.getPlayer();
 
 		//TODO: Work out how SimpleVanish fits into this
-
 		if(player.hasPermission("sv.joinvanished")) {
 			handleStateChange(player, true,
 							  getLayeredPermissionLevel(player, "use"),
