@@ -50,11 +50,12 @@ public class VanishBridge implements VanishBridgeAPI {
 	public void onJoin(PostLoginEvent event) {
 		Player player = event.getPlayer();
 
-		//TODO: Work out how SimpleVanish fits into this
 		if(player.hasPermission("sv.joinvanished")) {
 			handleStateChange(player, true,
 							  getLayeredPermissionLevel(player, "use"),
 							  getLayeredPermissionLevel(player, "see"));
+		} else if(player.hasPermission("vanish.vanish-join")) {
+			handleStateChange(player, true, 1, 1);
 		}
 	}
 
