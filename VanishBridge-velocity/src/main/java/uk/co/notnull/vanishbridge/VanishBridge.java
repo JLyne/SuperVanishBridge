@@ -16,7 +16,7 @@ import com.velocitypowered.api.proxy.messages.ChannelIdentifier;
 import com.velocitypowered.api.proxy.messages.MinecraftChannelIdentifier;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
-import uk.co.notnull.supervanishbridge.api.VanishStateChangeEvent;
+import uk.co.notnull.vanishbridge.api.VanishStateChangeEvent;
 import uk.co.notnull.vanishbridge.api.VanishBridgeAPI;
 
 import java.util.ArrayList;
@@ -97,8 +97,7 @@ public class VanishBridge implements VanishBridgeAPI {
 		seeLevels.compute(player.getUniqueId(), (key, value) -> seeLevel);
 
 		if(changed) {
-			//noinspection removal
-			proxy.getEventManager().fireAndForget(new VanishStateChangeEvent(player, state)); // Use old event for now
+			proxy.getEventManager().fireAndForget(new VanishStateChangeEvent(player, state));
 		}
 	}
 
