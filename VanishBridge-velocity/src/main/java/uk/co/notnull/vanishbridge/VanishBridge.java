@@ -7,6 +7,7 @@ import com.velocitypowered.api.command.CommandSource;
 import com.velocitypowered.api.event.connection.DisconnectEvent;
 import com.velocitypowered.api.event.connection.PluginMessageEvent;
 import com.velocitypowered.api.event.connection.PostLoginEvent;
+import com.velocitypowered.api.event.player.ServerPostConnectEvent;
 import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.proxy.Player;
@@ -48,15 +49,12 @@ public class VanishBridge implements VanishBridgeAPI {
 
 	@Subscribe(priority = Short.MAX_VALUE - 1)
 	public void onJoin(PostLoginEvent event) {
-		Player player = event.getPlayer();
+		checkJoinVanished(event.getPlayer());
+	}
 
-		if(player.hasPermission("sv.joinvanished")) {
-			handleStateChange(player, true,
-							  getLayeredPermissionLevel(player, "use"),
-							  getLayeredPermissionLevel(player, "see"));
-		} else if(player.hasPermission("vanish.vanish-join")) {
-			handleStateChange(player, true, 1, 1);
-		}
+	@Subscribe
+	public void onPostConnect(ServerPostConnectEvent event) {
+		checkJoinVanished(event.getPlayer());
 	}
 
 	@Subscribe(priority = Short.MIN_VALUE + 1)
@@ -151,6 +149,15 @@ public class VanishBridge implements VanishBridgeAPI {
 		return stream.map(Player::getUsername).collect(Collectors.toList());
 	}
 
+	private void checkJoinVanished(Player player) {
+		if(player.hasPermission("sv.joinvanished")) {
+			handleStateChange(player, true,
+							  getLayeredPermissionLevel(player, "use"),
+							  getLayeredPermissionLevel(player, "see"));
+		} else if(player.hasPermission("vanish.vanish-join")) {
+			handleStateChange(player, true, 1, 1);
+		}
+	}
 
 	private int getLayeredPermissionLevel(CommandSource source, String permission) {
         int level = source.hasPermission("sv." + permission) ? 1 : 0;
