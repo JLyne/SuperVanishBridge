@@ -1,11 +1,11 @@
 [versions]
-pluginYmlPaper = "0.7.1"
+pluginYmlPaper = "0.8.0"
 paperApi = "1.21.10-R0.1-SNAPSHOT"
 velocityApi = "3.4.0-SNAPSHOT"
 cloud = "1.8.4"
 superVanish = "6.2.19"
 simpleVanish = "1.0-SNAPSHOT"
-shadow = "8.3.8"
+shadow = "9.2.2"
 [libraries]
 paperApi = { group = "io.papermc.paper", name = "paper-api", version.ref = "paperApi" }
 velocityApi = { group = "com.velocitypowered", name = "velocity-api", version.ref="velocityApi" }
