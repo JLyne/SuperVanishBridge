@@ -124,11 +124,11 @@ public class VanishBridge implements VanishBridgeAPI {
 		Stream<Player> stream;
 
 		if(source == null) {
-			stream = proxy.getAllPlayers().stream().filter(p -> !isVanished(p));
+			stream = proxy.matchPlayer(query).stream().filter(p -> !isVanished(p));
 		} else if(source instanceof Player) {
-			stream = proxy.getAllPlayers().stream().filter(p -> canSee((Player) source, p));
+			stream = proxy.matchPlayer(query).stream().filter(p -> canSee((Player) source, p));
 		} else {
-			return new ArrayList<>(proxy.getAllPlayers());
+			return new ArrayList<>(proxy.matchPlayer(query));
 		}
 
 		return stream.collect(Collectors.toList());
@@ -139,11 +139,11 @@ public class VanishBridge implements VanishBridgeAPI {
 		Stream<Player> stream;
 
 		if(source == null) {
-			stream = proxy.getAllPlayers().stream().filter(p -> !isVanished(p));
+			stream = proxy.matchPlayer(query).stream().filter(p -> !isVanished(p));
 		} else if(source instanceof Player) {
-			stream = proxy.getAllPlayers().stream().filter(p -> canSee((Player) source, p));
+			stream = proxy.matchPlayer(query).stream().filter(p -> canSee((Player) source, p));
 		} else {
-			stream = proxy.getAllPlayers().stream();
+			stream = proxy.matchPlayer(query).stream();
 		}
 
 		return stream.map(Player::getUsername).collect(Collectors.toList());
