@@ -15,7 +15,7 @@ dependencies {
 paper {
     name = rootProject.name
     main = "uk.co.notnull.vanishbridge.VanishBridge"
-    apiVersion = libs.versions.paperApi.get().replace(Regex("\\-R\\d.\\d-SNAPSHOT"), "")
+    apiVersion = libs.versions.paperApi.get().replace(".build.+", "")
     authors = listOf("Jim (AnEnragedPigeon)")
     description = "Bridge plugin to notify Velocity of a player's vanish state on a backend server"
     load = BukkitPluginDescription.PluginLoadOrder.STARTUP
